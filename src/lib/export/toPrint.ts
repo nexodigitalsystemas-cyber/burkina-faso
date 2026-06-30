@@ -15,7 +15,7 @@ export function exportToPrint(records: Record[]): void {
         <td>${escapeHtml(r.nombre)}</td>
         <td>${escapeHtml(r.ciudad)}</td>
         <td>${r.edad}</td>
-        <td>${r.es_menor ? 'Sí' : 'No'}</td>
+        <td>${r.es_menor ? 'Oui' : 'Non'}</td>
         <td>${formatDate(r.created_at)}</td>
       </tr>
     `
@@ -39,19 +39,19 @@ export function exportToPrint(records: Record[]): void {
       </style>
     </head>
     <body>
-      <h1>Censo Burkina Faso</h1>
-      <div class="subtitle">Registros Demográficos</div>
+      <h1>Recensement Burkina Faso</h1>
+      <div class="subtitle">Dossiers démographiques</div>
       <div class="meta">
-        Generado: ${formatDate(new Date())} | Total: ${records.length} registros
+        Généré le : ${formatDate(new Date())} | Total : ${records.length} enregistrements
       </div>
       <table>
         <thead>
           <tr>
-            <th>Nombre</th>
-            <th>Ciudad</th>
-            <th>Edad</th>
-            <th>Es Menor</th>
-            <th>Fecha Registro</th>
+            <th>Nom</th>
+            <th>Ville</th>
+            <th>Âge</th>
+            <th>Mineur</th>
+            <th>Date d'enregistrement</th>
           </tr>
         </thead>
         <tbody>${rows}</tbody>

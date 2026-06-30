@@ -7,18 +7,18 @@ function formatDate(date: string | Date): string {
 
 export async function exportToCSV(records: Record[], filename: string = 'censo-burkina.csv'): Promise<void> {
   const headerRows = [
-    { Sección: 'Reporte', Detalle: 'Censo Burkina Faso - Registros Demográficos' },
-    { Sección: 'Generado', Detalle: formatDate(new Date()) },
-    { Sección: 'Total registros', Detalle: records.length },
-    { Sección: '', Detalle: '' },
+    { Section: 'Rapport', Détail: 'Recensement Burkina Faso - Dossiers démographiques' },
+    { Section: 'Généré le', Détail: formatDate(new Date()) },
+    { Section: 'Total des enregistrements', Détail: records.length },
+    { Section: '', Détail: '' },
   ];
 
   const data = records.map((r) => ({
-    Nombre: r.nombre,
-    Ciudad: r.ciudad,
-    Edad: r.edad,
-    'Es Menor': r.es_menor ? 'Sí' : 'No',
-    'Fecha Registro': formatDate(r.created_at),
+    Nom: r.nombre,
+    Ville: r.ciudad,
+    Âge: r.edad,
+    Mineur: r.es_menor ? 'Oui' : 'Non',
+    'Date d\'enregistrement': formatDate(r.created_at),
   }));
 
   const csv = Papa.unparse([...headerRows, ...data], {
