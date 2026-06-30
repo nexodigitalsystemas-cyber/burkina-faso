@@ -1,5 +1,9 @@
 import type { Record } from '@/types';
 
+function formatDate(date: string | Date): string {
+  return new Date(date).toLocaleString();
+}
+
 export function exportToPrint(records: Record[]): void {
   const printWindow = window.open('', '_blank');
   if (!printWindow) return;
@@ -12,7 +16,7 @@ export function exportToPrint(records: Record[]): void {
         <td>${escapeHtml(r.ciudad)}</td>
         <td>${r.edad}</td>
         <td>${r.es_menor ? 'Sí' : 'No'}</td>
-        <td>${new Date(r.created_at).toLocaleString()}</td>
+        <td>${formatDate(r.created_at)}</td>
       </tr>
     `
     )
@@ -24,19 +28,21 @@ export function exportToPrint(records: Record[]): void {
     <head>
       <title>Censo Burkina Faso</title>
       <style>
-        body { font-family: Arial, sans-serif; padding: 20px; }
-        h1 { color: #0f172a; }
+        body { font-family: Arial, sans-serif; padding: 20px; color: #0f172a; }
+        h1 { color: #0f172a; margin-bottom: 4px; }
+        .subtitle { color: #475569; font-size: 13px; margin-bottom: 8px; }
+        .meta { color: #475569; font-size: 12px; margin-top: 4px; margin-bottom: 12px; }
         table { width: 100%; border-collapse: collapse; margin-top: 16px; }
         th, td { border: 1px solid #e2e8f0; padding: 8px; text-align: left; }
         th { background: #2563eb; color: white; }
         tr:nth-child(even) { background: #f8fafc; }
-        .meta { color: #475569; font-size: 12px; margin-top: 4px; }
       </style>
     </head>
     <body>
-      <h1>Censo Burkina Faso - Registros Demográficos</h1>
+      <h1>Censo Burkina Faso</h1>
+      <div class="subtitle">Registros Demográficos</div>
       <div class="meta">
-        Generado: ${new Date().toLocaleString()} | Total: ${records.length} registros
+        Generado: ${formatDate(new Date())} | Total: ${records.length} registros
       </div>
       <table>
         <thead>
@@ -58,7 +64,6 @@ export function exportToPrint(records: Record[]): void {
   printWindow.document.close();
   printWindow.focus();
 
-  // Aguardar carga de estilos antes de imprimir
   setTimeout(() => {
     printWindow.print();
     printWindow.close();
