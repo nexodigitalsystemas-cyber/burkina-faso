@@ -29,10 +29,14 @@ export function Navbar() {
         {/* Logo */}
         <button
           onClick={() => navigate('/')}
-          className="flex items-center gap-2 font-semibold text-slate-900 hover:text-blue-600 transition-colors"
+          className="flex items-center gap-3 font-semibold text-slate-900 hover:text-blue-600 transition-colors"
         >
-          <ClipboardList className="w-5 h-5 text-blue-600" />
-          <span className="hidden sm:inline">{t('app.title')}</span>
+          <img
+            src="/logo_burkina.jpeg"
+            alt="Logo Burkina Faso"
+            className="w-8 h-8 rounded-md object-cover"
+          />
+          <span className="hidden sm:inline text-lg">{t('app.title')}</span>
         </button>
 
         {/* Ações */}
