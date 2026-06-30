@@ -1,7 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { RecordForm } from '@/components/form/RecordForm';
 import { OfflineIndicator } from '@/components/form/OfflineIndicator';
-import { useRecordsStore } from '@/stores/recordsStore';
 import { useSyncQueue } from '@/hooks/useSyncQueue';
 
 export function FormPage() {
