@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { Globe, LogOut, ClipboardList } from 'lucide-react';
+import { Globe, LogOut } from 'lucide-react';
 import { useAuth } from '@/hooks/useAuth';
 import type { Language } from '@/types';
 
