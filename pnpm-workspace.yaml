@@ -1,0 +1,6 @@
+allowBuilds:
+  core-js: set this to true or false
+  esbuild: set this to true or false
+minimumReleaseAgeExclude:
+  - react-router-dom@7.18.1
+  - react-router@7.18.1
