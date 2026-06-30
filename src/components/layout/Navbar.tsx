@@ -34,7 +34,7 @@ export function Navbar() {
           <img
             src="/logo_burkina.jpeg"
             alt="Logo Burkina Faso"
-            className="w-8 h-8 rounded-md object-cover"
+            className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-md object-contain"
           />
           <span className="hidden sm:inline text-lg">{t('app.title')}</span>
         </button>

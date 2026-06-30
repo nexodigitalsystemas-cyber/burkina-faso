@@ -16,7 +16,7 @@ export function FormPage() {
             <img
               src="/logo_burkina.jpeg"
               alt="Logo Burkina Faso"
-              className="w-10 h-10 rounded-md object-cover"
+              className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-md object-contain"
             />
             {t('app.title')}
           </h1>
